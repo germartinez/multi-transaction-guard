@@ -12,7 +12,8 @@
     "compile": "hardhat compile",
     "typechain": "ts-node ./scripts/generateTypechainFiles.ts",
     "build": "yarn compile && yarn typechain",
-    "deploy": "hardhat deploy --network hardhat"
+    "deploy": "hardhat deploy --network hardhat",
+    "format": "prettier --write \"{src,tests,scripts}/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "ethers": "^5.4.7",
     "hardhat": "^2.11.2",
     "hardhat-deploy": "^0.11.15",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": ">=8.0.0",
     "typechain": "^8.1.0",
