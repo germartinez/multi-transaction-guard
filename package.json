@@ -8,11 +8,12 @@
     "EthBerlin"
   ],
   "scripts": {
-    "clean": "rimraf artifacts cache typechain",
+    "clean": "rimraf artifacts cache typechain deployments .nyc_output",
     "compile": "hardhat compile",
     "typechain": "ts-node ./scripts/generateTypechainFiles.ts",
     "build": "yarn compile && yarn typechain",
-    "deploy": "hardhat deploy --network hardhat",
+    "deploy": "hardhat deploy",
+    "test": "hardhat deploy && nyc hardhat test",
     "format": "prettier --write \"{src,tests,scripts}/**/*.ts\""
   },
   "repository": {
@@ -30,14 +31,18 @@
     "@typechain/ethers-v5": "^10.1.0",
     "@typechain/hardhat": "^6.1.2",
     "@types/chai": "^4.2.0",
+    "@types/chai-as-promised": "^7.1.5",
     "@types/mocha": "^9.1.0",
     "@types/node": ">=12.0.0",
     "@types/yargs": "^17.0.12",
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "dotenv": "^16.0.2",
+    "ethereum-waffle": "^3.4.4",
     "ethers": "^5.4.7",
     "hardhat": "^2.11.2",
     "hardhat-deploy": "^0.11.15",
+    "nyc": "^15.1.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": ">=8.0.0",
