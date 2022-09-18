@@ -6,7 +6,9 @@ const outDir = './typechain'
 const contracts = [
   './artifacts/@gnosis.pm/safe-contracts/contracts/GnosisSafe.sol/GnosisSafe.json',
   './artifacts/@gnosis.pm/safe-contracts/contracts/proxies/GnosisSafeProxyFactory.sol/GnosisSafeProxyFactory.json',
-  './artifacts/contracts/MultiGuard.sol/MultiGuard.json'
+  './artifacts/contracts/MultiGuard.sol/MultiGuard.json',
+  './artifacts/contracts/exampleGuards/AllowListGuard.sol/AllowListGuard.json',
+  './artifacts/contracts/exampleGuards/DenyListGuard.sol/DenyListGuard.json'
 ]
 
 function generateTypechainFiles(contractPath: string): void {

@@ -44,7 +44,20 @@ export const getSafeWithOwners = async (
 }
 
 export const getMultiGuard = async (): Promise<MultiGuard> => {
-  const MultiGuardDeployment = await deployments.get('MultiGuard')
   const MultiGuard = await ethers.getContractFactory('MultiGuard')
-  return MultiGuard.attach(MultiGuardDeployment.address) as MultiGuard
+  const multiGuard = await MultiGuard.deploy()
+  await multiGuard.deployed()
+  return multiGuard as MultiGuard
+}
+
+export const getAllowListGuard = async (): Promise<AllowListGuard> => {
+  const FactoryDeployment = await deployments.get('AllowListGuard')
+  const Factory = await ethers.getContractFactory('AllowListGuard')
+  return Factory.attach(FactoryDeployment.address) as AllowListGuard
+}
+
+export const getDenyListGuard = async (): Promise<DenyListGuard> => {
+  const FactoryDeployment = await deployments.get('DenyListGuard')
+  const Factory = await ethers.getContractFactory('DenyListGuard')
+  return Factory.attach(FactoryDeployment.address) as DenyListGuard
 }
