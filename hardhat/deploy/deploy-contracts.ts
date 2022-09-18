@@ -19,7 +19,14 @@ const deploy = async (hre: HardhatRuntimeEnvironment): Promise<void> => {
     deterministicDeployment: true
   })
 
-  await deploy('MultiGuard', {
+  await deploy('AllowListGuard', {
+    from: deployer,
+    args: [],
+    log: true,
+    deterministicDeployment: true
+  })
+
+  await deploy('DenyListGuard', {
     from: deployer,
     args: [],
     log: true,
